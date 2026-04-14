@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AIEP - Bienvenido</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f2f5;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+        header {
+            background-color: #1a2b5e;
+            padding: 14px 40px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+        .logo-box {
+            background-color: #cc0000;
+            color: white;
+            font-size: 22px;
+            font-weight: bold;
+            padding: 6px 14px;
+            border-radius: 4px;
+            letter-spacing: 1px;
+        }
+        .logo-sub {
+            color: #ffffff;
+            font-size: 12px;
+            opacity: 0.8;
+        }
+        .btn-logout {
+            background-color: #cc0000;
+            color: white;
+            border: none;
+            padding: 8px 20px;
+            border-radius: 4px;
+            font-size: 13px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+        .btn-logout:hover {
+            background-color: #aa0000;
+        }
+        nav {
+            background-color: #cc0000;
+            padding: 10px 40px;
+        }
+        nav span {
+            color: white;
+            font-size: 13px;
+            opacity: 0.9;
+        }
+        main {
+            flex: 1;
+            padding: 40px 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 24px;
+        }
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 36px 40px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid #1a2b5e;
+        }
+        .card h1 {
+            color: #1a2b5e;
+            font-size: 22px;
+            margin-bottom: 8px;
+        }
+        .card p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .usuario-badge {
+            display: inline-block;
+            background-color: #1a2b5e;
+            color: white;
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 13px;
+            margin-bottom: 16px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 8px;
+        }
+        .info-item {
+            background-color: #f0f2f5;
+            border-radius: 6px;
+            padding: 16px;
+            border-left: 3px solid #cc0000;
+        }
+        .info-item .label {
+            font-size: 11px;
+            color: #888;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+        }
+        .info-item .value {
+            font-size: 14px;
+            color: #1a2b5e;
+            font-weight: bold;
+        }
+        .zona-privada {
+            background: white;
+            border-radius: 8px;
+            padding: 36px 40px;
+            width: 100%;
+            max-width: 600px;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+            border-top: 4px solid #cc0000;
+        }
+        .zona-privada h2 {
+            color: #cc0000;
+            font-size: 16px;
+            margin-bottom: 8px;
+        }
+        .zona-privada p {
+            color: #666;
+            font-size: 14px;
+            line-height: 1.6;
+        }
+        .tag-seguro {
+            display: inline-block;
+            background-color: #e6f4ea;
+            color: #2d7a3a;
+            padding: 3px 10px;
+            border-radius: 4px;
+            font-size: 12px;
+            font-weight: bold;
+            margin-bottom: 12px;
+        }
+        footer {
+            background-color: #1a2b5e;
+            color: rgba(255,255,255,0.6);
+            text-align: center;
+            padding: 14px;
+            font-size: 12px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="header-left">
+        <div class="logo-box">AIEP</div>
+        <div class="logo-sub">de la Universidad Andrés Bello</div>
+    </div>
+    <button class="btn-logout" onclick="logout()">Cerrar Sesión</button>
+</header>
+
+<nav>
+    <span>Taller de Plataformas Web — Programación Segura</span>
+</nav>
+
+<main>
+    <div class="card">
+        <div class="usuario-badge" id="usuario-badge">Cargando...</div>
+        <h1>Bienvenido al sistema</h1>
+        <p>Has iniciado sesión correctamente. Tu identidad fue verificada mediante autenticación JWT y tu sesión está protegida con una cookie segura.</p>
+
+        <div class="info-grid">
+            <div class="info-item">
+                <div class="label">Tipo de autenticación</div>
+                <div class="value">JSON Web Token</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Almacenamiento</div>
+                <div class="value">Cookie httpOnly</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Duración de sesión</div>
+                <div class="value">1 hora</div>
+            </div>
+            <div class="info-item">
+                <div class="label">Estado</div>
+                <div class="value">Activa</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="zona-privada">
+        <div class="tag-seguro">ZONA PRIVADA</div>
+        <h2>Ruta protegida por middleware</h2>
+        <p>Esta sección solo es accesible si posees un token JWT válido. El middleware del servidor verificó tu token antes de permitir el acceso. Si el token hubiera sido inválido o inexistente, habrías sido redirigido automáticamente.</p>
+    </div>
+</main>
+
+<footer>
+    &copy; 2025 AIEP — Universidad Andrés Bello. Todos los derechos reservados.
+</footer>
+
+<script>
+    // Al cargar la página verificamos que el token sea válido
+    async function verificarAcceso() {
+        try {
+            const response = await fetch('/auth/privado');
+
+            if (!response.ok) {
+                window.location.href = '/';
+                return;
+            }
+
+            const data = await response.json();
+            const nombre = data.usuario?.usuario || 'Usuario';
+            document.getElementById('usuario-badge').textContent = nombre.toUpperCase();
+
+        } catch (error) {
+            window.location.href = '/';
+        }
+    }
+
+    async function logout() {
+        try {
+            await fetch('/auth/logout', { method: 'POST' });
+        } finally {
+            window.location.href = '/';
+        }
+    }
+
+    verificarAcceso();
+</script>
+
+</body>
+</html>
